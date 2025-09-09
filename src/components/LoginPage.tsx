@@ -1,6 +1,10 @@
 import { useState } from 'react';
 
-const LoginPage = () => {
+interface LoginPageProps {
+  onNavigateToSignup: () => void;
+}
+
+const LoginPage = ({ onNavigateToSignup }: LoginPageProps) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -202,9 +206,12 @@ const LoginPage = () => {
         <div className="text-center mt-8">
           <p className="text-sm text-gray-600">
             Don't have an account?{' '}
-            <a href="#" className="font-medium text-blue-600 hover:text-blue-500 transition-colors">
+            <button 
+              onClick={onNavigateToSignup}
+              className="font-medium text-blue-600 hover:text-blue-500 transition-colors"
+            >
               Sign up here
-            </a>
+            </button>
           </p>
         </div>
       </div>
